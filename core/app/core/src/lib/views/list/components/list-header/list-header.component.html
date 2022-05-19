@@ -1,0 +1,89 @@
+<! --
+/**
+* SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+* Copyright (C) 2021 SalesAgility Ltd.
+*
+* This program is free software; you can redistribute it and/or modify it under
+* the terms of the GNU Affero General Public License version 3 as published by the
+* Free Software Foundation with the addition of the following permission added
+* to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+* IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+* WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+* FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+* details.
+*
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see http://www.gnu.org/licenses.
+*
+* In accordance with Section 7(b) of the GNU Affero General Public License
+* version 3, these Appropriate Legal Notices must retain the display of the
+* "Supercharged by SuiteCRM" logo. If the display of the logos is not reasonably
+* feasible for technical reasons, the Appropriate Legal Notices must display
+* the words "Supercharged by SuiteCRM".
+*/
+-->
+<ng-container>
+    <div class="list-view-header">
+        <ng-container *ngIf="displayResponsiveTable">
+            <div class="d-flex flex-nowrap">
+                <div class="row">
+                    <div class="col">
+                        <div class="order-3">
+                            <scrm-action-menu></scrm-action-menu>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <div class="order-2">
+                            <scrm-module-title class="list-view-title" [title]="moduleTitle">
+                            </scrm-module-title>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <div class="order-1">
+                            <scrm-settings-menu></scrm-settings-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template [ngIf]="!displayResponsiveTable">
+            <div class="row mr-0 align-items-center">
+                <div class="col-md-4">
+                    <scrm-module-title class="list-view-title" [title]="moduleTitle"></scrm-module-title>
+                </div>
+                <div class="col-md-8">
+                    <div class="row mr-0 ml-1">
+                        <div class="w-100">
+                            <scrm-action-menu></scrm-action-menu>
+                        </div>
+                        <div class="w-100">
+                            <scrm-settings-menu></scrm-settings-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-view-hr-container">
+                <hr class="list-view-hr">
+            </div>
+            <div *ngIf="actionPanel === 'filters'" class="container-fluid pt-2 small-font">
+                <div class="row">
+                    <div class="col">
+                        <scrm-list-filter [config]="filterAdapter.getConfig()"></scrm-list-filter>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="actionPanel === 'recordPanel' && recordPanelConfig" class="container-fluid pt-2 small-font">
+                <div class="row">
+                    <div class="col">
+                        <scrm-record-panel [config]="recordPanelConfig"></scrm-record-panel>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</ng-container>

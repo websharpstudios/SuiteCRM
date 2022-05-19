@@ -1,0 +1,12 @@
+Tue May 17 04:30:23 2022 [231][1][FATAL] User update error: Temp User is not retrieved at ID 1, boolean given
+Tue May 17 04:30:23 2022 [231][1][FATAL] Email address save error
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Setting logger_file_name to ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Invalid ext  logger_file_ext : ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Setting logger_file_ext to ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Log file extension can't be blank.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Log file extension can't be blank.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Setting logger_file_name to ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Invalid ext  logger_file_ext : ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Setting logger_file_ext to ''.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Log file extension can't be blank.
+Tue May 17 04:30:27 2022 [231][1][SECURITY] Log file extension can't be blank.

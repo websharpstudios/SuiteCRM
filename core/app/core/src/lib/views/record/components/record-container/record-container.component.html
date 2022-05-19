@@ -1,0 +1,76 @@
+<! --
+/**
+* SuiteCRM is a customer relationship management program developed by SalesAgility Ltd.
+* Copyright (C) 2021 SalesAgility Ltd.
+*
+* This program is free software; you can redistribute it and/or modify it under
+* the terms of the GNU Affero General Public License version 3 as published by the
+* Free Software Foundation with the addition of the following permission added
+* to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+* IN WHICH THE COPYRIGHT IS OWNED BY SALESAGILITY, SALESAGILITY DISCLAIMS THE
+* WARRANTY OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+* FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+* details.
+*
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see http://www.gnu.org/licenses.
+*
+* In accordance with Section 7(b) of the GNU Affero General Public License
+* version 3, these Appropriate Legal Notices must retain the display of the
+* "Supercharged by SuiteCRM" logo. If the display of the logos is not reasonably
+* feasible for technical reasons, the Appropriate Legal Notices must display
+* the words "Supercharged by SuiteCRM".
+*/
+-->
+<!-- Start Record View Container Section -->
+
+<div *ngIf="(vm$ | async) as vm"
+     class="record-view-container view-container container-fluid pt-3 pb-3 small-font">
+    <div class="row">
+        <div class="col-lg-9" [ngClass]="{ 'col-lg-12': !vm.sidebarWidgetConfig.show }">
+
+            <div class="container-fluid pl-0 pr-0">
+
+                <div class="row no-gutters"
+                     *ngIf="vm.topWidgetConfig.show && hasTopWidgetMetadata(vm.topWidgetConfig.widget)">
+                    <div class="col pb-3">
+                        <scrm-top-widget [type]="vm.topWidgetConfig.widget.type"
+                                         [context]="getViewContext()"
+                                         [config]="vm.topWidgetConfig.widget">
+                        </scrm-top-widget>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <scrm-record-content [dataSource]="getContentAdapter()"></scrm-record-content>
+                    </div>
+                </div>
+
+                <div *ngIf="vm.showSubpanels"
+                     class="row no-gutters pt-1 pb-4">
+                    <div class="col">
+                        <scrm-subpanel-container [config]="getSubpanelsConfig()"></scrm-subpanel-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 record-widget-container pl-0"
+             *ngIf="vm.sidebarWidgetConfig.show && vm.sidebarWidgetConfig.widgets">
+            <div class="mb-3" *ngFor="let widget of vm.sidebarWidgetConfig.widgets">
+                <scrm-sidebar-widget [type]="widget.type"
+                                     [context]="getViewContext()"
+                                     [context$]="getViewContext$()"
+                                     [config]="widget">
+                </scrm-sidebar-widget>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- End Record View Container Section -->

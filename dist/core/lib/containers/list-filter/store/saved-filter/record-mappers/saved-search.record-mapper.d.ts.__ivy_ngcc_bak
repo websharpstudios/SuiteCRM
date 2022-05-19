@@ -1,0 +1,5 @@
+import { Record, RecordMapper } from 'common';
+export declare class SavedSearchRecordMapper implements RecordMapper {
+    getKey(): string;
+    map(record: Record): void;
+}

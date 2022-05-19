@@ -1,0 +1,26 @@
+framework:
+  secret: "%secret%"
+
+parameters:
+  secret: '%env(APP_SECRET)%'
+  legacy.dir: '%kernel.project_dir%/public/legacy'
+  packages.upgrade.dir: '%kernel.project_dir%/tmp/package/upgrade'
+  legacy.path: '/legacy'
+  legacy.session_name: 'LEGACYSESSID'
+  default_session_name: 'PHPSESSID'
+
+imports:
+  - { resource: services/**/*.yaml }
+  - { resource: ../extensions/*/config/services/*.yaml }
+  - { resource: ../extensions/*/config/services/*.php }
+  - { resource: ../extensions/*/config/services/**/*.yaml }
+  - { resource: ../extensions/*/config/services/**/*.php }
+  - { resource: ../extensions/*/config/modules/*.yaml }
+  - { resource: ../extensions/*/config/modules/*.php }
+  - { resource: ../extensions/*/config/modules/**/*.yaml }
+  - { resource: ../extensions/*/config/modules/**/*.php }
+  - { resource: core_services.yaml }
+  - { resource: ../extensions/*/config/*.yaml }
+  - { resource: ../extensions/*/config/*.php }
+  - { resource: ../extensions/**/services.yaml }
+  - { resource: ../extensions/**/services.php }
